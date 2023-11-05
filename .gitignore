@@ -1,0 +1,5 @@
+# ignore specific files:
+.ruby-version
+
+# ignore all files in specific directory:
+.idea/
