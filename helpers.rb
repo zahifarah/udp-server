@@ -3,7 +3,7 @@ def setup_server(ip_address, port)
   $global_server_port = port
   server = UDPSocket.new
   server.bind($global_server_ip, $global_server_port)
-  puts "Server set, cannot speak until spoken to..."
+  puts "Server started, cannot speak until spoken to..."
   return server
 end
 

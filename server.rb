@@ -1,3 +1,5 @@
+# router should redirect port 5500 towards my laptop
+
 require 'socket'
 require_relative "helpers"
 
@@ -6,6 +8,7 @@ $global_server_port = nil
 $global_client_ip = nil
 
 server = setup_server("192.168.1.35", 5500)
+# server = setup_server("192.168.1.6", 49152) router
 
 client_ip = nil
 client_port = nil
@@ -31,7 +34,7 @@ threads << Thread.new do
   loop do
     message_to_send = gets.chomp
     if client_ip && client_port && !message_to_send.empty?
-      server.send(message_to_send + "\n", 0, client_ip, client_port)
+      server.send(message_to_send, 0, client_ip, client_port)
     end
   end
 end
